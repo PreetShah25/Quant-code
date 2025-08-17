@@ -1,7 +1,6 @@
 # preet-quant-ai-codes
 
 High-signal quant + AI monorepo with clean code, tests, and CI.
-Pin a few of these and add a short profile README to look battle-tested.
 
 ## Projects
 - **jvol-smile** — SVI-based implied vol smile fitting + Black–Scholes greeks (NumPy only).
