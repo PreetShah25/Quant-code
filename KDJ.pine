@@ -1,0 +1,21 @@
+//@version=6
+indicator("KDJ指标", overlay=false)
+
+length = input.int(9, title="KDJ Length")
+smoothK = input.int(3, title="K Smoothing")
+smoothD = input.int(3, title="D Smoothing")
+
+highestHigh = ta.highest(high, length)
+lowestLow = ta.lowest(low, length)
+rsv = (close - lowestLow) / (highestHigh - lowestLow) * 100
+
+k = ta.ema(rsv, smoothK)
+d = ta.ema(k, smoothD)
+j = 3 * d - 2 * k
+
+plot(k, color=color.blue, title="K")
+plot(d, color=color.orange, title="D")
+plot(j, color=color.white, title="J")
+
+hline(80, "Overbought", color=color.red, linestyle=hline.style_dotted)
+hline(20, "Oversold", color=color.green, linestyle=hline.style_dotted)
